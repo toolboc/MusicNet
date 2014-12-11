@@ -8,6 +8,12 @@ var phraseList = []; //cortana phrases
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
 
+    function processVoiceCommand(voiceCommandName) {
+        if (voiceCommandName === "nextCommand") {
+            var j = "";
+        }
+    }
+
     app.onactivated = function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {
 
@@ -87,6 +93,10 @@ var phraseList = []; //cortana phrases
                     //var messageDialog = new Windows.UI.Popups.MessageDialog("Voice search is not supported for this app.");
                     //messageDialog.showAsync();
                 }
+            }
+            else
+            {
+                processVoiceCommand(voiceCommandName);
             }
         }
     };

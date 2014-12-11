@@ -2,10 +2,17 @@
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
 
   <CommandSet xml:lang="en-us" Name="examplevcd">
-    <CommandPrefix>WAT</CommandPrefix>
+    <CommandPrefix>MusicNet</CommandPrefix>
     <!-- change this -->
     <Example>Go to ...</Example>
 
+    <Command Name="nextCommand">
+      <Example>Next Track</Example>
+      <ListenFor>Next Track</ListenFor>
+      <Feedback>Next Track</Feedback>
+      <Navigate/>
+    </Command>
+    
     <Command Name="watCommand">
       <Example>Go to ...</Example>
       <ListenFor>Go to {options}</ListenFor>
