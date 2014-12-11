@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="readme/bootstrap.min.css" rel="stylesheet" />
+    <link href="readme/docs.css" rel="stylesheet" />
+    <link href="readme/custom.css" rel="stylesheet" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Readme</title>
+</head>
+<body>
+    <div class="bs-header" id="content">
+        <div class="container">
+            <div>
+                <div class="col-sm-3">
+                    <img src="readme/logo-wat.png" class="img-responsive">
+                </div>
+                <div class="col-sm-9">
+                    <h1>Readme</h1>
+                    <p class="subtitle">Guidelines, best practices and technical qualifications for Web App Template solutions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row top-row">
+            <div class="col-lg-12">
+                <h2>TABLE OF CONTENTS</h2>
+                <ul>
+                    <li><a href="#support-for-w3c-web-app-manifest-format">Support for W3C Web App manifest format</a></li>
+                    <li><a href="#backward-compatibility-config-format-support">Backward compatibility config format support</a></li>
+                    <li><a href="#minimalistic-default-configjson-file">Minimalistic default config.json file</a></li>
+                    <li><a href="#default-values">Default values</a></li>
+                    <li><a href="#sample-configjson-file-with-complete-settings">Sample config.json file with complete settings</a></li>
+                    <li><a href="#intellisense-support">Intellisense support</a></li>
+                </ul>
+                <h2 id="support-for-w3c-web-app-manifest-format">Support for W3C Web App manifest format</h2>
+                <p>
+                    Since version 2.2 of the template the config.json file adheres to the <a href="http://www.w3.org/TR/appmanifest/">W3C Web App manifest</a>
+                    format. Some required legacy properties were renamed to match the manifest format while proprietary extensions were simply
+                    prefixed with "wat_".
+                    <br><br>
+                    For instance, the mandatory legacy "displayName" and "homeURL" properties were renamed to "name" and "start_url"
+                    respectively. On the other hand, the "navigation" proprietary extension was renamed to "wat_navigation"
+                </p>
+                <h2 id="backward-compatibility-config-format-support">Backward compatibility config format support</h2>
+                <p>
+                    The template supports the previous format of the config.json file so if you already have a working one there is no need to
+                    update it to the new format. However, this is the recommended approach.
+                    <br><br>
+                    Note: The template automatically detects whether the config.json file observes the new format and applies validation rules
+                    accordingly. Mixing both approaches will result in an error.
+                </p>
+                <h2 id="minimalistic-default-configjson-file">Minimalistic default config.json file</h2>
+                <p>
+                    Out of the box the tremplate provides a default config.json file with 4 properties. However, in order to have a running app
+                    you just need to set the "start_URL" value.
+                    <br><br>
+                    <img src="readme/minimalist-default-config-json-file.png" />
+                </p>
+                <h2 id="default-values">Default values</h2>
+                <p>
+                    The template will apply default values for all the properties defined in a manifest schema (App.Shared\schema\schema-manifest.json)
+                    so, after including a section in the config.json you will have a default behavior without having to set anything else.
+                    <br><br>
+                    <img src="readme/config-json-default-values.png" />
+                    <br><br>
+                    Of course you can always override the default values in the config.json.
+                    <br><br>
+                    <img src="readme/config-json-override-default-values.png" />
+                </p>
+                <h2 id="sample-configjson-file-with-complete-settings">Sample config.json file with complete settings</h2>
+                <p>
+                    The template provides a sample config.json which is nothing more than a configuration file that defines values for all the
+                    properties defined in the manifest.
+                    <br><br>
+                    Also, a sample globalization config.es.json file is included containing localized strings that will override those found in
+                    the default config.json file depending on the user's current culture. In the sample file the localized strings correspond
+                    to the spanish culture.
+                    <br><br>
+                    <img src="readme/sample-config-json-files.png" />
+                </p>
+                <h2 id="intellisense-support">Intellisense support</h2>
+                <p>
+                    The template provides a sample config.json which is nothing more than a configuration file that defines values for all the
+                    properties defined in the manifest.
+                    <br><br>
+                    Also, a sample globalization config.es.json file is included containing localized strings that will override those found in
+                    the default config.json file depending on the user's current culture. In the sample file the localized strings correspond
+                    to the spanish culture.
+                    <br><br>
+                    <img src="readme/sample-config-json-files.png" />
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
