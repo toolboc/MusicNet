@@ -8,7 +8,15 @@ var phraseList = []; //cortana phrases
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
 
+    var mopidy = new Mopidy({
+        webSocketUrl: "ws://192.168.1.128:6680/mopidy/ws/",
+        callingConvention: "by-position-or-by-name"
+    });
+
     app.onactivated = function (args) {
+
+        mopidy.playback.stop({ "clear_current_track": null });
+
         if (args.detail.kind === activation.ActivationKind.launch) {
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {

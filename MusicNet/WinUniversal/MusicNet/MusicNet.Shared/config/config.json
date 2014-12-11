@@ -1,6 +1,6 @@
 {
     "$schema": "/schema/schema-manifest.json",
-    "start_url": "http://192.168.100.103",
+    "start_url": "http://192.168.1.128",
 
     "wat_customScript": {
         "scriptFiles._comment": "An array of custom script files stored within the app package that are injected into the DOM",
