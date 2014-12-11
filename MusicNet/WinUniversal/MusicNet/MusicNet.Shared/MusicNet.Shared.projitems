@@ -17,6 +17,7 @@
     <Content Include="$(MSBuildThisFileDirectory)css\wrapper-styles.css" />
     <Content Include="$(MSBuildThisFileDirectory)error-example.html" />
     <Content Include="$(MSBuildThisFileDirectory)injection-script-example.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\mopidy.js" />
     <None Include="$(MSBuildThisFileDirectory)readme\bootstrap.min.css" />
     <None Include="$(MSBuildThisFileDirectory)readme\custom.css" />
     <None Include="$(MSBuildThisFileDirectory)readme\docs.css" />
