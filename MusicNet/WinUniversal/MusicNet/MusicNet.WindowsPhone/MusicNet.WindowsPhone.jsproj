@@ -266,6 +266,7 @@
     <Content Include="css\ui-themed.css" />
     <Content Include="css\ui-themed.theme-dark.css" />
     <Content Include="css\ui-themed.theme-light.css" />
+    <Content Include="js\mopidy.js" />
     <Content Include="packages.config" />
     <Content Include="template\js\environment.js" />
     <Content Include="template\settings.html" />

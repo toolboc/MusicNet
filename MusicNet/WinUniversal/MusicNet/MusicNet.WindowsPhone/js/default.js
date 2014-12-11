@@ -13,9 +13,13 @@ var phraseList = []; //cortana phrases
         callingConvention: "by-position-or-by-name"
     });
 
+    mopidy.on("state:online", function () {
+        mopidy.playback.stop();
+    });
+
     app.onactivated = function (args) {
 
-        mopidy.playback.stop({ "clear_current_track": null });
+
 
         if (args.detail.kind === activation.ActivationKind.launch) {
 
