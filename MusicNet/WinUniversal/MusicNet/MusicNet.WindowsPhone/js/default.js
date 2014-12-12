@@ -15,11 +15,14 @@ var phraseList = []; //cortana phrases
     var artist, uris = null;
 
     function playArtist() {
-        mopidy.library.search({ 'query': { 'artist': [search] } }).done(function (results) {
+        mopidy.library.search({ 'query': { 'any': [search] }, 'uris': ['local:directory'] }).done(function (results) {
             results.forEach(function (result) {
                 if (result.tracks) {
                     mopidy.tracklist.clear();
-                    mopidy.tracklist.add({ 'tracks': [result.tracks] }).done();
+                    result.tracks.forEach(function (track) {
+                        mopidy.tracklist.add({ 'tracks': [track] }).done();
+                    });
+                    mopidy.playback.play();
                 }
             });
         });
