@@ -9,12 +9,28 @@ var phraseList = []; //cortana phrases
     var activation = Windows.ApplicationModel.Activation;
     var online = false;
     var awaitingCommand = "";
+    var search = "";
     var volumeLevel = 0;
     var mopidy = null;
+    var artist, uris = null;
+
+    function playArtist() {
+        mopidy.library.search({ 'query': { 'artist': [search] } }).done(function (results) {
+            results.forEach(function (result) {
+                if (result.tracks) {
+                    mopidy.tracklist.clear();
+                    mopidy.tracklist.add({ 'tracks': [result.tracks] }).done();
+                }
+            });
+        });
+    }
 
     function processCommand(command) {
         // Any awaiting command
         switch (command) {
+            case "artist":
+                playArtist();
+                break;
             case "next":
                 mopidy.playback.next();
                 break;
@@ -47,6 +63,9 @@ var phraseList = []; //cortana phrases
         // If volume, we need to pase out what percent
         if (voiceCommandName === "volume") {
             volumeLevel = parseInt(textSpoken.split(" ")[1]);
+        }
+        else if (voiceCommandName === "artist") {
+            search = textSpoken.substr(textSpoken.indexOf(" ") + 1);
         }
 
         processOrQueueCommand(voiceCommandName);

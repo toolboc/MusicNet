@@ -6,6 +6,13 @@
     <!-- change this -->
     <Example>Go to ...</Example>
 
+    <Command Name="artist">
+      <Example>Artist Incubus</Example>
+      <ListenFor>Artist {searchTerm}</ListenFor>
+      <Feedback>Playing artist {searchTerm}</Feedback>
+      <Navigate/>
+    </Command>
+
     <Command Name="next">
       <Example>Next Track</Example>
       <ListenFor>Next Track</ListenFor>
