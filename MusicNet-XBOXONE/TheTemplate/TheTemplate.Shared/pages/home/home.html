@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>landing hub</title>
+
+    <link href="/css/home.css" rel="stylesheet" />
+    <script src="home.js" defer="defer"></script>
+    <script src="/js/mopidy.js"></script>
+
+</head>
+<body>
+    <div class="home-page win-layout-titlesafeheader layout-landingpageheader">
+        <button class="win-layout-backbutton" data-win-control="Shared.UI.BackButton"></button>
+        <!--<div class="win-layout-applogo win-layout-pagetitle"><img src="/images/applogo.png" /></div>-->
+        <div id="title"></div>
+    </div>
+    
+    <section id="landing-hub" 
+             class="win-layout-edgetoedgehorizontalcontent landinghub layout-hidewhensnapped" 
+             data-win-control="Shared.UI.Hub"
+             data-win-options="{title: 'Home'}" 
+             aria-label="Main content" role="main">
+
+        <div data-win-control="Shared.UI.HubSection" data-win-options="{ header: 'Controls', isHeaderStatic: true }">
+            <div class="layout-landing-hub1">
+                <div id="landing-play"
+                     data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.play}"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Play</div>
+                </div>
+                <div id="landing-pause"
+                     data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.pause}"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Pause</div>
+                </div>
+                <div id="landing-action1" data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.next}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Next track</div>
+                </div>
+                <div id="landing-action2" data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.prev}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Previous track</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-hub-section-space" data-win-control="Shared.UI.HubSection" data-win-options="{ header: 'Queue', isHeaderStatic: true }">
+            <div id="landing-featured"
+                 class="landing-featured-container"
+                 data-win-control="Shared.UI.Repeater"
+                 data-win-options="{template: select('.pagecontrol').winControl.popularTemplateFunctionBind}"
+                 data-win-bind="winControl.data: viewModel.featuredItems">
+            </div>
+            <div id="landing-morefeatureditems"
+                 data-win-control="Shared.UI.ItemContainer"
+                 data-win-options="{oninvoked: select('.pagecontrol').winControl.browseMore}"
+                 class="layout-landing-hub-section-more win-tile-more"
+                 data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-text-tiletitle')}">
+                <div class="win-icon-more"></div>
+                <div class="win-text-tiletitle">More Featured</div>
+            </div>
+        </div>
+
+        <div data-win-control="Shared.UI.HubSection" data-win-options="{ header: 'Playlists', isHeaderStatic: true }">
+            <div class="layout-landing-hub1">
+                <div id="landing-playTool"
+                     data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.playTool}"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Tool</div>
+                </div>
+                <div id="landing-playSpotify"
+                     data-win-control="Shared.UI.ItemContainer"
+                     class="landing-actionbutton tile-brandbackground win-tile-horizontaltext win-tile-underline"
+                     data-win-options="{oninvoked: select('.pagecontrol').winControl.playSpotify}"
+                     data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+                    <div class="win-text-tiletitle win-voice-inactivetext">Spotify</div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="layout-hub-section-space new-hub-section"
+             data-win-control="Shared.UI.HubSection"
+             data-win-options="{ header: 'Popular', isHeaderStatic: true }">
+            <div id="landing-new"
+                 class="landing-new-container"
+                 data-win-control="Shared.UI.Repeater"
+                 data-win-options="{template: select('.pagecontrol').winControl.popularTemplateFunctionBind}"
+                 data-win-bind="winControl.data: viewModel.newItems">
+            </div>
+        </div>-->
+
+
+</section>
+
+    <!-- Used for snapped mode -->
+    <div class="landing-snapped-overlay win-layout-titlesafecontent">
+        <div id="snapped-browse-featured" data-win-control="Shared.UI.ItemContainer" class="landing-snapped-browsefeaturedbutton win-tile-horizontaltext" data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+            <div class="win-text-tiletitle win-voice-inactivetext">Browse Featured</div>
+        </div>
+        <div id="snapped-browse-popluar" data-win-control="Shared.UI.ItemContainer" class="landing-snapped-browsepopularbutton win-tile-horizontaltext" data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+            <div class="win-text-tiletitle win-voice-inactivetext">Browse Popular</div>
+        </div>
+        <div data-win-control="Shared.UI.ItemContainer" class="landing-snapped-gofullscreenbutton win-tile-horizontaltext" data-win-voice="{ srcElement: select('.win-text-tiletitle'), targetElement: select('.win-voice-textdisplay')}">
+            <div class="win-text-tiletitle win-voice-inactivetext">Snap to full view</div>
+        </div>
+    </div>
+</body>
+</html>

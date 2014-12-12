@@ -1,0 +1,36 @@
+﻿body {
+}
+
+#contenthost > .pagecontrol{
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 128px 1fr;
+    display: -ms-grid;
+    height: 100%;
+    width: 100%;
+}
+
+    .win-layout-titlesafeheader {
+        /* Define a grid with columns for the back button and page title. */
+        -ms-grid-columns: 37px 83px 1fr;
+        -ms-grid-rows: 1fr;
+        display: -ms-grid;
+    }
+
+        .win-layout-titlesafeheader .win-navigation-backbutton {
+            -ms-grid-column: 2;
+            margin-top: 57px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .win-layout-titlesafeheader .win-layout-pagetitle {
+            -ms-grid-column: 3;
+            margin-top: 37px;
+        }
+
+    section[role=main] {
+        -ms-grid-row: 2;
+        height: 100%;
+    }
+
+

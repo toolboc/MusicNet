@@ -1,0 +1,44 @@
+﻿.browse .win-surface {
+    margin-left: 96px;
+    padding: 0px;
+}
+
+.browse-listview {
+    width: 100%;
+    height: 659px;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .browse-snapped-gofullscreenbutton {
+        -ms-grid-row: 2;
+    }
+
+    .browse .win-surface {
+        margin: 0 0 0 0;
+        padding: 0px;
+    }
+
+    .browse-listview {
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 3;
+        height: 652px;
+    }
+
+    .browse {
+       height: 100%;
+       -ms-grid-row: 4;
+       display: -ms-grid;
+       -ms-grid-columns: 1fr;
+       -ms-grid-rows: 1fr 10px 10px;
+    }
+}
+
+@media screen and (-ms-view-state: filled) {
+     .browse .win-surface {
+        margin: 0 0 0 96px;
+        padding: 0px;
+    }
+}
+
+ 

@@ -1,0 +1,176 @@
+﻿.layout-detailspageheader .win-hub-viewport {
+    margin-top: 0;
+}
+
+.detailshub .win-hub-surface {
+    margin: 20px 18px 36px 118px; /*The margin right needs to + 18 pixel in order to overwrite the value from xbox-ui-dark/light.*/
+    height: 806px;
+}
+
+/* Overview section */
+.details-hub-overview .win-hub-section-content {
+    margin-top: 0;
+}
+
+.details-layout-overview-grid {
+    display: -ms-grid;
+    overflow: visible;
+    -ms-grid-rows: 208px 1fr;
+    -ms-grid-columns: 432px;
+    height: 100%;
+}
+
+.details-layout-overview-image {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: transparent;
+    background-color: rgb(54, 54, 54);
+    height: 208px;
+    width: 424px;
+}
+
+.details-layout-overview-buttons {
+    -ms-grid-row: 2;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    margin-top: 40px;
+    width: 424px;
+}
+
+    .details-layout-overview-buttons > div {
+        margin: 4px 0px;
+    }
+
+/* Description section */
+.details-hub-description .win-hub-section-content {
+    margin-top: -13px;
+}
+
+.details-layout-grid-description {
+    display: -ms-grid;
+    -ms-grid-rows: auto 34px auto 8px auto 15px auto 34px 1fr;
+    -ms-grid-columns: 1fr;
+    width: 600px;
+    height: 730px;
+    margin-left: -10px;
+}
+
+.details-layout-title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    overflow: hidden;
+    max-height: 178px;
+}
+
+.details-layout-rating {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    overflow: hidden;
+}
+
+.details-layout-userrating {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    overflow: hidden;
+    margin: 0 0 0 -5px;
+}
+
+.details-layout-description {
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+    height: auto;
+    min-height: 364px;
+}
+
+.details-rating:focus .win-full {
+    color: rgb(41, 156, 16);
+}
+
+.details-rating:focus .win-empty {
+    color: rgb(235, 235, 235);
+}
+
+/* Related section */
+.details-related {
+    margin-top: -4px;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-wrap: wrap;
+    height: 100%;
+}
+
+.details-related-button .win-item {
+    background-color: rgb(54, 54, 54);
+    height: 208px;
+    width: 424px;
+}
+
+/* We override the default display for the hub section. By default it uses '-ms-grid'.
+   -ms-grid will cause the hub section not to be the full width of the repeater's content.
+   This causes there not to be any space in between the last item and the right edge of 
+   the screen. You want extra space so the user knows they are at the end of the list. */
+.details-hub-related.win-hub-section {
+    display: block;
+    margin-right: 64px;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .details-snapped-overlay {
+        display: -ms-grid;
+        -ms-grid-rows: 16px 218px 16px 300px 16px 100px 8px 100px 8px 100px;
+        -ms-grid-columns: 388px;
+    }
+
+    .win-layout-titlesafeheader > #details-pagetitle.win-layout-pagetitle {
+        font-size: 20pt;
+        width: 388px;
+        white-space: normal;
+        max-height: 70px;
+    }
+
+    .details-layout-overview-image {
+        width: 388px;
+        height: 218px;
+    }
+
+    #details-description-snapped {
+        overflow: hidden;
+        -ms-grid-row: 4;
+        height: 100%;
+    }
+
+    .layout-snapped2 {
+        -ms-grid-row: 2;
+    }
+
+    .layout-snapped6 {
+        -ms-grid-row: 6;
+    }
+
+    .layout-snapped8 {
+        -ms-grid-row: 8;
+    }
+
+    .layout-snapped10 {
+        -ms-grid-row: 10;
+    }
+
+    .win-tile-horizontaltext {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+    .details-snapped-overlay {
+        display: none;
+    }
+}
+
+@media screen and (-ms-view-state: filled) {
+    .details-snapped-overlay {
+        display: none;
+    }
+}

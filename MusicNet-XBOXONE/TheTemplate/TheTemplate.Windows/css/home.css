@@ -1,0 +1,145 @@
+﻿.home-page.win-layout-titlesafeheader {
+    position: relative;
+    z-index: 2;
+}
+
+section[role=main].landinghub {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    z-index: 1;
+}
+
+.landinghub .win-hub-surface {
+    height: 100%;
+}
+
+
+/*menu*/
+
+.layout-landing-hub1 {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.landing-actionbutton .win-item {
+    height: 60px;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+}
+
+
+    .landing-actionbutton .win-item .win-text-tiletitle {
+        -ms-grid-row-align: end;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: lighter;
+    }
+
+
+
+/*featured*/
+
+#landing-featured {
+    display: -ms-grid;
+    -ms-grid-rows: 230px 8px 230px;
+    -ms-grid-columns: 230px 8px 230px 8px 230px;
+    width: auto;
+}
+
+
+#landing-featured .win-item {
+    height: 100%;
+    width: 100%;
+}
+
+
+#landing-featured > div:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+}
+
+#landing-featured > div:nth-child(2) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+
+#landing-featured > div:nth-child(3) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+}
+
+#landing-featured > div:nth-child(4) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+
+#landing-featured > div:nth-child(5) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+}
+
+.layout-landing-hub-section-more {
+    display: none;
+}
+
+
+@media (min-height: 1000px) {
+    #landing-featured {
+        -ms-grid-rows: 230px 8px 230px 8px 230px;
+        -ms-grid-columns: 230px 8px 230px;
+    }
+
+    #landing-featured > div:nth-child(4) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 1;
+    }
+
+    #landing-featured > div:nth-child(5) {
+        -ms-grid-row: 5;
+        -ms-grid-column: 3;
+    }
+}
+
+/*new section*/
+
+.landing-new-container {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-wrap: wrap;
+    height: 100%;
+}
+
+.landing-new-container .win-itemcontainer {
+   margin: 0 8px 8px 0px;
+}
+
+.landing-new-container .win-item {
+    height: 150px;
+    width: 150px;
+}
+
+/* We override the default display for the hub section. By default it uses '-ms-grid'.
+   -ms-grid will cause the hub section not to be the full width of the repeater's content.
+   This causes there not to be any space in between the last item and the right edge of 
+   the screen. You want extra space so the user knows they are at the end of the list. */
+.new-hub-section.win-hub-section {
+    display: block;
+    margin-right: 20px;
+}
+
+.landinghub .win-hub-section-content {
+    height: calc(100% - 144px);
+}
+
+/**/
+
+.landing-snapped-overlay{
+    display:none;
+}

@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.win-tile-systemicon .win-item,
+.tile-brandbackground:focus .win-item,
+.win-appbar button.win-global,
+body:not(.win-visiblebutnotfocused) .win-appbar button.win-global:focus,
+body:not(.win-visiblebutnotfocused) .win-tile-galleryheader:focus .win-item,
+body:not(.win-visiblebutnotfocused) .win-tile-listbutton:focus .win-item,
+.win-mediatile:focus .win-mediatile-metadatabackground,
+body:not(.win-visiblebutnotfocused) .win-tile-horizontaltext:focus .win-item {
+     /* "Contoso" blue.
+         TODO: Replace this value with the primary color for your application.
+         This color is used for most of the buttons in the application.  */
+    background-color: rgb(77, 130, 172);
+}
+
+.fragment header[role=banner] .titlearea .pagetitle {
+   font-family: "Segoe Script", cursive;
+}

@@ -1,0 +1,12 @@
+﻿body {
+}
+
+
+section[role=main] {
+    height: calc(100% - 63px);
+}
+
+.win-layout-backbutton{
+    display:none;
+}
+

@@ -1,0 +1,124 @@
+﻿.layout-detailspageheader{
+    display:none;
+}
+
+/* Overview section */
+
+.details-layout-overview-grid {
+    display: -ms-grid;
+    overflow: visible;
+    -ms-grid-rows: 208px 1fr;
+    -ms-grid-columns: 1fr;
+    height: 100%;
+}
+
+.details-layout-overview-image {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: transparent;
+    background-color: rgb(54, 54, 54);
+    height: 208px;
+    width: 100%;
+}
+
+.details-layout-overview-buttons {
+    -ms-grid-row: 2;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.details-layout-overview-buttons .win-item {
+    height: 60px;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+}
+
+
+    .details-layout-overview-buttons .win-item .win-text-tiletitle {
+        -ms-grid-row-align: end;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: lighter;
+    }
+
+    .details-layout-overview-buttons > div {
+        margin: 4px 0px;
+    }
+
+    #details-ratingpicker{
+        display:none;
+    }
+/* Description section */
+
+.details-layout-grid-description {
+    display: flexbox;
+    flex-direction: column;
+    width: 100%;
+}
+
+.details-layout-title {
+    overflow: hidden;
+    max-height: 178px;
+}
+
+.details-layout-rating {
+    overflow: hidden;
+}
+
+.details-layout-userrating {
+    overflow: hidden;
+    margin: 0 0 0 -5px;
+}
+
+.details-layout-description {
+    height: auto;
+    min-height: 364px;
+}
+
+.details-rating:focus .win-full {
+    color: rgb(41, 156, 16);
+}
+
+.details-rating:focus .win-empty {
+    color: rgb(235, 235, 235);
+}
+
+/* Related section */
+.details-related {
+    margin-top: -4px;
+    display: flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-wrap: nowrap;
+}
+
+.details-related > div {
+    margin-bottom: 8px;
+}
+
+.details-related-button .win-item {
+    background-color: rgb(54, 54, 54);
+    height: 208px;
+    width: 100%;
+}
+
+
+
+
+.details-snapped-overlay {
+    display: none;
+}
+
+#details-moreactionsmenu{
+    display: none;
+}
+
+

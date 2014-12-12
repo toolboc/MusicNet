@@ -1,0 +1,34 @@
+﻿
+.browse-listview {
+    width: 100%;
+    height: 100%;
+}
+
+.browse-snapped-gofullscreenbutton{
+    display:none;
+}
+
+
+
+.browse{
+    height: 100%;
+}
+
+
+.browse .win-item {
+    height: 130px;
+    width: 100%;
+}
+
+#browse-title {
+    padding: 10px;
+}
+
+.browse .win-viewport {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.browse .win-viewport .win-itemsblock{
+    width: calc(100% - 20px);
+}

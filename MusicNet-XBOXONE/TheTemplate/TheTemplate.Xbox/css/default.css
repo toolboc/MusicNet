@@ -1,0 +1,157 @@
+﻿/* The following rule gives the RatingPicker's button the "underline" button style */
+.win-ratingpicker-ratebutton .win-tile-underline .win-item {
+   box-shadow: inset 0px -1px 0px 0px rgba(58, 58, 58, 1);
+}
+
+/* Page layout grid overrides */
+.win-layout-pagegrid {
+   -ms-grid-rows: 32px 8px 106px 1fr auto 8px 32px;
+}
+
+    /* App title container - overrides Xbox styles from 1fr to auto */
+    .win-layout-pagegrid > .win-layout-titlesafeheader {
+        -ms-grid-rows: auto;
+        height: auto;
+    }
+
+        .win-layout-titlesafeheader > .win-layout-pagetitle {
+            text-overflow: inherit;
+            white-space: normal;
+            margin-top: 0;
+            width: 864px;
+            max-height: 106px;
+        }
+
+.win-hub-horizontal .win-hub-section-content {
+    height: calc(100% - 20px);
+}
+
+.win-layout-titlesafeheader > .win-layout-applogo {
+   -ms-grid-row-align: end;
+}
+
+#pageTransitionFader {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    /* If you are using the light theme, you may want to consider changing the background color of the fader to white rgb(235, 235, 235) */
+    background-color: rgb(16, 16, 16);
+}
+
+.layout-gallerysortandfilterbuttons {
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+    margin: 0 0 0 96px;
+    height: 108px;
+    margin-bottom: 1px;
+}
+
+    /* Add margins to the tiles at the top of gallery pages. */
+    .layout-gallerysortandfilterbuttons > div {
+        margin: 4px 4px 4px 4px;
+    }
+
+.win-listview .layout-gallerytile .win-item {
+    overflow: visible;
+}
+
+.win-listview .layout-gallerytile,
+.win-listview .layout-gallerytile .win-item {
+    height: 208px;
+    width: 424px;
+}
+
+.win-repeater .win-itemcontainer {
+    margin: 4px;
+}
+
+.edgetoedgehorizontalcontent,
+.win-layout-snappablebrowsegallery {
+    margin-top: 39px;
+    display: normal;
+}
+
+.win-tile-systemicon .win-item,
+.tile-brandbackground:focus .win-item,
+.win-appbar button.win-global,
+body:not(.win-visiblebutnotfocused) .win-appbar button.win-global:focus,
+body:not(.win-visiblebutnotfocused) .win-tile-galleryheader:focus .win-item,
+body:not(.win-visiblebutnotfocused) .win-tile-listbutton:focus .win-item,
+.win-mediatile:focus .win-mediatile-metadatabackground,
+body:not(.win-visiblebutnotfocused) .win-tile-horizontaltext:focus .win-item {
+     /* "Contoso" blue.
+         TODO: Replace this value with the primary color for your application.
+         This color is used for most of the buttons in the application.  */
+    background-color: rgb(77, 130, 172);
+}
+
+body:not(.win-visiblebutnotfocused) button.win-ratingpicker-ratingoption:focus .win-full.win-star {
+    /* "Contoso" blue.
+    TODO: Replace this value with the primary color for your application.
+    This color is used for most of the buttons in the application.  */
+    color: rgb(77, 130, 172);
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+    .default-snapped-overlay {
+        display: none;
+    }
+    
+    .layout-showwhensnapped {
+        display: none;
+    }
+}
+
+@media screen and (-ms-view-state: filled) {
+    .default-snapped-overlay {
+        display: none;
+    }
+
+    .layout-showwhensnapped {
+        display: none;
+    }
+
+    .layout-gallerysortandfilterbuttons {
+        margin: 0 0 1px 96px;
+        height: 108px;
+    }
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .default-snapped-overlay {
+        display: -ms-grid;
+        -ms-grid-rows: 1fr auto;
+        -ms-grid-columns: 1fr;
+    }
+
+    .layout-hidewhensnapped {
+        display: none;
+    }
+
+    .win-listview .win-mediatile {
+        width: 388px;
+    }
+
+    .layout-snappedbutton .win-item {
+        width: 388px;
+        height: 100px;
+    }
+
+    .layout-snappedbuttontall .win-item {
+        width: 388px;
+        height: 208px;
+    }
+
+    .win-tile-horizontaltext .win-item,
+    .win-tile-horizontaltext .win-voice-container {
+        width: 388px;
+    }
+
+    /* Respect title safe when in the snapped view state */
+    .pagecontrol > .win-layout-snappablebrowsegallery {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: 16px 100px 8px 652px 1fr;
+        margin-top: 20px;
+    }
+}
