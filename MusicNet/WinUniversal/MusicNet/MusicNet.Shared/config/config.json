@@ -10,6 +10,8 @@
         "search": true
     },
 
+    "start_url": "http://192.168.1.128",
+
     "wat_customScript": {
         "scriptFiles": [
             "injection-script-example.js"
@@ -52,8 +54,8 @@
     },
 
     "wat_share": {
-        "enabled": true,
-        "showButton": true,
+        "enabled": false,
+        "showButton": false,
         "buttonText": "Share",
         "buttonSection": "global",
         "title": "WAT Documentation",
@@ -76,7 +78,7 @@
     },
 
     "wat_geoLocation": {
-        "enabled": true
+        "enabled": false
     },
 
     "wat_appBar": {
@@ -98,7 +100,7 @@
     },
 
     "wat_navBar": {
-        "enabled": true,
+        "enabled": false,
         "maxRows": 2,
         "makeSticky": false,
         "buttons": [

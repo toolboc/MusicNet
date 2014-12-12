@@ -6,13 +6,41 @@
     <!-- change this -->
     <Example>Go to ...</Example>
 
-    <Command Name="nextCommand">
+    <Command Name="next">
       <Example>Next Track</Example>
       <ListenFor>Next Track</ListenFor>
       <Feedback>Next Track</Feedback>
       <Navigate/>
     </Command>
-    
+
+    <Command Name="pause">
+      <Example>Pause</Example>
+      <ListenFor>Pause</ListenFor>
+      <Feedback>Pause</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="play">
+      <Example>Play</Example>
+      <ListenFor>Play</ListenFor>
+      <Feedback>Play</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="previous">
+      <Example>Previous Track</Example>
+      <ListenFor>Previous Track</ListenFor>
+      <Feedback>Previous Track</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="volume">
+      <Example>Volume 50%</Example>
+      <ListenFor>Volume {volumeLevels} percent</ListenFor>
+      <Feedback>Setting volume to {volumeLevels} percent</Feedback>
+      <Navigate/>
+    </Command>
+
     <Command Name="watCommand">
       <Example>Go to ...</Example>
       <ListenFor>Go to {options}</ListenFor>
@@ -28,6 +56,19 @@
     </Command>
 
     <PhraseList Label="options">
+    </PhraseList>
+    
+    <PhraseList Label="volumeLevels">
+      <Item>10</Item>
+      <Item>20</Item>
+      <Item>30</Item>
+      <Item>40</Item>
+      <Item>50</Item>
+      <Item>60</Item>
+      <Item>70</Item>
+      <Item>80</Item>
+      <Item>90</Item>
+      <Item>100</Item>
     </PhraseList>
 
     <PhraseTopic Label="searchTerm" Scenario="Search">

@@ -7,14 +7,67 @@ var phraseList = []; //cortana phrases
 
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
+    var online = false;
+    var awaitingCommand = "";
+    var volumeLevel = 0;
 
-    function processVoiceCommand(voiceCommandName) {
-        if (voiceCommandName === "nextCommand") {
-            var j = "";
+    // Create Mopidy and connect to device
+    var mopidy = new Mopidy({
+        webSocketUrl: "ws://192.168.1.128:6680/mopidy/ws/",
+        callingConvention: "by-position-or-by-name"
+    });
+
+    function processCommand(command) {
+        // Any awaiting command
+        switch (command) {
+            case "next":
+                mopidy.playback.next();
+                break;
+            case "pause":
+                mopidy.playback.pause();
+                break;
+            case "play":
+                mopidy.playback.play();
+                break;
+            case "previous":
+                mopidy.playback.previous();
+                break;
+            case "volume":
+                mopidy.playback.setVolume([volumeLevel]).done();
+                break;
         }
     }
 
+    function processOrQueueCommand(command) {
+        if (online) {
+            processCommand(command);
+        }
+        else {
+            awaitingCommand = command;
+        }
+    }
+
+    function processVoiceCommand(voiceCommandName, textSpoken, target) {
+        
+        // If volume, we need to pase out what percent
+        if (voiceCommandName === "volume") {
+            volumeLevel = parseInt(textSpoken.split(" ")[1]);
+        }
+
+        processOrQueueCommand(voiceCommandName);
+    }
+
+    // When Mopid connects
+    mopidy.on("state:online", function () {
+        // Online now
+        online = true;
+        
+        // Process any awaiting command
+        processCommand(awaitingCommand);
+    });
+
     app.onactivated = function (args) {
+
         if (args.detail.kind === activation.ActivationKind.launch) {
 
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
@@ -39,6 +92,8 @@ var phraseList = []; //cortana phrases
             var textSpoken =
                 speechRecognitionResult.text !==
                 undefined ? speechRecognitionResult.text : "EXCEPTION";
+
+            var navigationTarget = speechRecognitionResult.semanticInterpretation.properties["NavigationTarget"][0];
 
             if (voiceCommandName === "watCommand") {
                 WAT.config.settings.items.forEach(function (item) {
@@ -96,7 +151,7 @@ var phraseList = []; //cortana phrases
             }
             else
             {
-                processVoiceCommand(voiceCommandName);
+                processVoiceCommand(voiceCommandName, textSpoken, navigationTarget);
             }
         }
     };
