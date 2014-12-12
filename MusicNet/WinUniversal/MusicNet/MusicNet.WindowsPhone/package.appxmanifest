@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="template/wat-wrapper.html">
-      <m3:VisualElements DisplayName="MusicNet" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="MusicNet" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="MusicNet" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="MusicNet" ForegroundText="light" BackgroundColor="transparent" ToastCapable="true">
         <m3:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" Square71x71Logo="images\Square71x71Logo.png">
         </m3:DefaultTile>
         <m3:SplashScreen Image="images\SplashScreen.png" />

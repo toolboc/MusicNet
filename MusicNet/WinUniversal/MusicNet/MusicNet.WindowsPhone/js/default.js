@@ -10,12 +10,7 @@ var phraseList = []; //cortana phrases
     var online = false;
     var awaitingCommand = "";
     var volumeLevel = 0;
-
-    // Create Mopidy and connect to device
-    var mopidy = new Mopidy({
-        webSocketUrl: "ws://192.168.1.128:6680/mopidy/ws/",
-        callingConvention: "by-position-or-by-name"
-    });
+    var mopidy = null;
 
     function processCommand(command) {
         // Any awaiting command
@@ -57,15 +52,68 @@ var phraseList = []; //cortana phrases
         processOrQueueCommand(voiceCommandName);
     }
 
-    // When Mopid connects
-    mopidy.on("state:online", function () {
+    function showToast(text, silent, expire) {
+        var notifications = Windows.UI.Notifications;
+        var template = notifications.ToastTemplateType.toastImageAndText02;
+        var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
+        var toastTextElements = toastXml.getElementsByTagName("text");
+        toastTextElements[0].appendChild(toastXml.createTextNode(text));
+
+        if (silent) {
+            var toastNode = toastXml.selectSingleNode("/toast");
+            var audio = toastXml.createElement("audio");
+            audio.setAttribute("silent", "true");
+        }
+
+        var toast = new notifications.ToastNotification(toastXml);
+
+        if (expire) {
+            var currentDate = new Date();
+            toast.ExpirationTime = new Date(currentDate.getTime() + 1000);
+        }
+
+        notifications.ToastNotificationManager.createToastNotifier().show(toast);
+    }
+
+    // When Mopidy connects
+    function mopidyConnect() {
         // Online now
         online = true;
         
         // Process any awaiting command
         processCommand(awaitingCommand);
-    });
+    }
 
+    // When Mopidy plays a track
+    function mopidyTrackPlay() {
+        mopidy.playback.getCurrentTrack().done(function (track) {
+
+            // Toast
+            showToast(track.name, true, true);
+        });
+    }
+
+    // App loaded
+    app.onloaded = function (args) {
+        // Create Mopidy and connect to device
+        mopidy = new Mopidy({
+            webSocketUrl: "ws://192.168.1.128:6680/mopidy/ws/",
+            callingConvention: "by-position-or-by-name"
+        });
+
+        // Subscribe to Mopidy events
+        mopidy.on("state:online", mopidyConnect);
+        mopidy.on("event:trackPlaybackStarted", mopidyTrackPlay);
+    }
+
+    // App unloaded
+    app.onunload = function (args) {
+
+        // Unsubscribe from all Mopidy events
+        mopidy.off();
+    }
+
+    // App activated
     app.onactivated = function (args) {
 
         if (args.detail.kind === activation.ActivationKind.launch) {
