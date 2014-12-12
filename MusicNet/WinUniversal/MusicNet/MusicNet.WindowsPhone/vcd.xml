@@ -30,7 +30,9 @@
     <Command Name="play">
       <Example>Play</Example>
       <ListenFor>Play</ListenFor>
-      <Feedback>Play</Feedback>
+      <ListenFor>Play {searchOptions} {searchTerm}</ListenFor>
+      <ListenFor>Play {locationOptions} {searchOptions} {searchTerm}</ListenFor>
+      <Feedback>Playing {searchOptions} {searchTerm}</Feedback>
       <Navigate/>
     </Command>
 
@@ -76,6 +78,17 @@
       <Item>80</Item>
       <Item>90</Item>
       <Item>100</Item>
+    </PhraseList>
+
+    <PhraseList Label="searchOptions">
+      <Item>artist</Item>
+      <Item>album</Item>
+      <Item>track</Item>
+    </PhraseList>
+
+    <PhraseList Label="locationOptions">
+      <Item>local</Item>
+      <Item>online</Item>
     </PhraseList>
 
     <PhraseTopic Label="searchTerm" Scenario="Search">

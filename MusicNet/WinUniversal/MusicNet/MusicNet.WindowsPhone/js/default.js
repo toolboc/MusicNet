@@ -9,13 +9,18 @@ var phraseList = []; //cortana phrases
     var activation = Windows.ApplicationModel.Activation;
     var online = false;
     var awaitingCommand = "";
-    var search = "";
+    var searchLocations = ["local:directory"];
+    var searchOption = "artist";
+    var searchText = null;
     var volumeLevel = 0;
     var mopidy = null;
     var artist, uris = null;
 
-    function playArtist() {
-        mopidy.library.search({ 'query': { 'any': [search] }, 'uris': ['local:directory'] }).done(function (results) {
+    function searchAndPlay() {
+        var query = {};
+        query[searchOption] = [searchText];
+
+        mopidy.library.search({ 'query': query, 'uris': searchLocations }).done(function (results) {
             results.forEach(function (result) {
                 if (result.tracks) {
                     mopidy.tracklist.clear();
@@ -31,9 +36,6 @@ var phraseList = []; //cortana phrases
     function processCommand(command) {
         // Any awaiting command
         switch (command) {
-            case "artist":
-                playArtist();
-                break;
             case "next":
                 mopidy.playback.next();
                 break;
@@ -41,7 +43,12 @@ var phraseList = []; //cortana phrases
                 mopidy.playback.pause();
                 break;
             case "play":
-                mopidy.playback.play();
+                if (searchText) {
+                    searchAndPlay();
+                }
+                else {
+                    mopidy.playback.play();
+                }
                 break;
             case "previous":
                 mopidy.playback.previous();
@@ -67,8 +74,40 @@ var phraseList = []; //cortana phrases
         if (voiceCommandName === "volume") {
             volumeLevel = parseInt(textSpoken.split(" ")[1]);
         }
-        else if (voiceCommandName === "artist") {
-            search = textSpoken.substr(textSpoken.indexOf(" ") + 1);
+        else if (voiceCommandName === "play") {
+            var params = textSpoken.match(/(play)\s(online|local)*\s*(artist|album|track)*\s*(.*)/i);
+
+            // 0 = whole thing
+            // 1 = 'play'
+            // 2 = location (local | online)
+            // 3 = option (artist | album | track)
+            // 4 = search text
+
+            // Which location?
+            switch (params[2]) {
+                case 'online':
+                    searchLocations = ["spotify:"];
+                    break;
+                default:
+                    searchLocations = ["local:directory"]; // Default location is local
+                    break;
+            }
+
+            // Which location?
+            if (params[3]) {
+                searchOption = params[3];
+            }
+            else {
+                searchOption = "artist"
+            }
+
+            // Search text?
+            if (params[4]) {
+                searchText = params[4];
+            }
+            else {
+                searchText = null;
+            }
         }
 
         processOrQueueCommand(voiceCommandName);
