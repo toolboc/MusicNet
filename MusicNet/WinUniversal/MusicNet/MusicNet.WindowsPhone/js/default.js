@@ -158,7 +158,7 @@ var phraseList = []; //cortana phrases
     app.onloaded = function (args) {
         // Create Mopidy and connect to device
         mopidy = new Mopidy({
-            webSocketUrl: "ws://192.168.1.128:6680/mopidy/ws/",
+            webSocketUrl: "ws://192.168.1.137:6680/mopidy/ws/",
             callingConvention: "by-position-or-by-name"
         });
 
