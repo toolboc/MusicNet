@@ -4,7 +4,7 @@
   <CommandSet xml:lang="en-us" Name="examplevcd">
     <CommandPrefix>MusicNet</CommandPrefix>
     <!-- change this -->
-    <Example>Go to ...</Example>
+    <Example>Play (Local|Online) (Artist|Album|Track) </Example>
 
     <Command Name="artist">
       <Example>Artist Incubus</Example>
@@ -29,7 +29,7 @@
 
     <Command Name="play">
       <Example>Play</Example>
-      <ListenFor>Play</ListenFor>
+      <!--<ListenFor>Play</ListenFor>-->
       <ListenFor>Play {searchOptions} {searchTerm}</ListenFor>
       <ListenFor>Play {locationOptions} {searchOptions} {searchTerm}</ListenFor>
       <Feedback>Playing {searchOptions} {searchTerm}</Feedback>

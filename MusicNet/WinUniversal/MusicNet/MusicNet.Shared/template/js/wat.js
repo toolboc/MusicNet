@@ -646,15 +646,16 @@ See the Apache Version 2.0 License for specific language governing permissions a
             Windows.Storage.StorageFile.getFileFromApplicationUriAsync(uri).then(
             // Success function.
             function (vcd) {
-                Windows.Media.SpeechRecognition.VoiceCommandManager.installCommandSetsFromStorageFileAsync(vcd);
-
-                var installedCommandSets = Windows.Media.SpeechRecognition.VoiceCommandManager.installedCommandSets;
-                if (installedCommandSets.hasKey("examplevcd")) {
-                    var commandSet = installedCommandSets.lookup("examplevcd");
-                    commandSet.setPhraseListAsync("options", phraseList);
-                }
-            });
-    }
+                Windows.Media.SpeechRecognition.VoiceCommandManager.installCommandSetsFromStorageFileAsync(vcd).done
+                    (
+                        function(){
+                            var installedCommandSets = Windows.Media.SpeechRecognition.VoiceCommandManager.installedCommandSets;
+                            if (installedCommandSets.hasKey("examplevcd")) {
+                                var commandSet = installedCommandSets.lookup("examplevcd");
+                                commandSet.setPhraseListAsync("options", phraseList);
+                            }
+                        })})
+        };
 
     configLoadHandler = function (file) {
         Windows.Storage.FileIO.readTextAsync(file)
