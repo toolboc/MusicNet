@@ -1,7 +1,7 @@
 MusicNet
 ========
 
-This project is allows makes use of a [PiMusicBox](http://pimusicbox.com/) music player running on an IoT device (Raspberry Pi) that we can control from Windows 8, Windows Phone, XBOX One and the Microsoft Band.
+This project makes use of a [PiMusicBox](http://pimusicbox.com/) music player running on an IoT device (Raspberry Pi) that we can control from Windows 8, Windows Phone, XBOX One and the Microsoft Band.
 
 We can do Play, Pause, Next, Previous, Volume Up, Volume Down and search both local and online music from each of those devices. On Windows Phone and the Microsoft Band, those commands can all be executed using speech. Even more exciting is that whenever a track changes from any devices the new track information shows up on the Microsoft Band.
 
