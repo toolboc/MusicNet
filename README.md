@@ -34,7 +34,7 @@ The photo below shows of all the components working together:
 
 Requirements
 ============
-* Raspberyy Pi
+* Raspberry Pi
 * Windows Phone
 
 Instructions
