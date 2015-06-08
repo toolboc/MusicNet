@@ -31,3 +31,14 @@ Technologies used:
 
 The photo below shows of all the components working together:
 ![ScreenShot](http://i.imgur.com/6zVovli.jpg)
+
+Requirements
+============
+* Raspberyy Pi
+* Windows Phone
+
+Instructions
+============
+1. Configure and Deploy [PiMusicBox](http://pimusicbox.com/) and optionally follow the [instructions to enable playback statistics in Azure](https://github.com/toolboc/MusicNet/tree/58df59bbec0c5ef58445ea588e1b8261dfd9af51/RaspberryPi/AzurePlaybackStatistics).
+2. Make note of the ip PiMusicBox is running on and modify "start_url" to point to that ip in [MusicNet.Shared/config/config.json](https://github.com/toolboc/MusicNet/blob/58df59bbec0c5ef58445ea588e1b8261dfd9af51/MusicNet/WinUniversal/MusicNet/MusicNet.Shared/config/config.json) and do the same for "webSocketUrl" in [MusicNet.WindowsPhone/js/default.js](https://github.com/toolboc/MusicNet/blob/58df59bbec0c5ef58445ea588e1b8261dfd9af51/MusicNet/WinUniversal/MusicNet/MusicNet.WindowsPhone/js/default.js)
+3. Deploy to your device, for voice commands see [vcd.xml](https://github.com/toolboc/MusicNet/blob/58df59bbec0c5ef58445ea588e1b8261dfd9af51/MusicNet/WinUniversal/MusicNet/MusicNet.WindowsPhone/vcd.xml)
